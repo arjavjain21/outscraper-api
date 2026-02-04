@@ -8,6 +8,7 @@ import sys
 from app.config import settings
 from app.db import get_pool, close_pool
 from app.api.v1.outscraper.business import router as business_router
+from app.api.v1.outscraper.lean import router as lean_router
 
 # Configure logging
 logging.basicConfig(
@@ -69,6 +70,7 @@ app.add_middleware(
 # Include routers
 # Note: No prefix needed here since nginx strips /api/v1/outscraper/ before proxying
 app.include_router(business_router)
+app.include_router(lean_router)
 
 
 @app.on_event("startup")

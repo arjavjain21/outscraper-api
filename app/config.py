@@ -35,6 +35,10 @@ class Settings(BaseSettings):
     # Environment
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "production")
 
+    # API Authentication
+    OUTSCRAPER_API_KEY: str = os.getenv("OUTSCRAPER_API_KEY", "")
+    OUTSCRAPER_API_ENABLED: bool = os.getenv("OUTSCRAPER_API_ENABLED", "true").lower() == "true"
+
     class Config:
         env_file = ".env"
         case_sensitive = True
